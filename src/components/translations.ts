@@ -10,7 +10,7 @@ export const translations = {
       badge: "Personal Finance App",
       title: "Your money,",
       titleHighlight: "your control",
-      description: "Track expenses, set goals, and stay on top of your finances. Mi Varo helps you understand where your money goes and plan for what's ahead.",
+      description: "Track expenses, set goals, and stay on top of your finances. MiCash helps you understand where your money goes and plan for what's ahead.",
       downloadBtn: "Download APK",
       learnMore: "Learn More",
       free: "Free",
@@ -56,7 +56,7 @@ export const translations = {
     },
     download: {
       label: "Android Only",
-      title: "Download Mi Varo",
+      title: "Download MiCash",
       description: "Currently available for Android. Download the APK and take control of your finances today.",
       btn: "Download APK",
       safe: "Safe & Secure",
@@ -66,11 +66,11 @@ export const translations = {
     install: {
       label: "Installation Guide",
       title: "How to Install",
-      description: "Follow these simple steps to install Mi Varo on your Android device",
+      description: "Follow these simple steps to install MiCash on your Android device",
       step1: {
         title: "Download the APK",
-        description: "Click the download button above to get the Mi Varo APK file on your device.",
-        file: "File: mivaro.apk",
+        description: "Click the download button above to get the MiCash APK file on your device.",
+        file: "File: MiCash.apk",
         size: "Size: ~15 MB"
       },
       step2: {
@@ -89,18 +89,18 @@ export const translations = {
         description: "Locate the downloaded file and install the app.",
         instructions: [
           { label: "Downloads", text: "Open your" },
-          { label: "mivaro.apk", text: "Tap on" },
+          { label: "MiCash.apk", text: "Tap on" },
           { label: "Install", text: "Tap" }
         ]
       },
       step4: {
         title: "Open and Enjoy!",
-        description: "Once installed, tap \"Open\" or find Mi Varo in your app drawer to start managing your finances.",
+        description: "Once installed, tap \"Open\" or find MiCash in your app drawer to start managing your finances.",
         ready: "You're all set to track your expenses!"
       },
       securityNote: {
         title: "Important Security Note",
-        description: "Mi Varo requires \"Unknown sources\" permission to install. This is normal for apps outside the Play Store. Your data stays on your device - we don't collect any personal information."
+        description: "MiCash requires \"Unknown sources\" permission to install. This is normal for apps outside the Play Store. Your data stays on your device - we don't collect any personal information."
       }
     },
     faq: {
@@ -108,27 +108,27 @@ export const translations = {
       title: "Common Questions",
       questions: [
         {
-          q: "Is Mi Varo free to use?",
-          a: "Yes! Mi Varo is 100% free with no hidden fees, no premium versions, and no ads. We believe everyone should have access to simple financial tracking."
+          q: "Is MiCash free to use?",
+          a: "Yes! MiCash is 100% free with no hidden fees, no premium versions, and no ads. We believe everyone should have access to simple financial tracking."
         },
         {
           q: "Is my data safe?",
           a: "Absolutely! All your data is stored locally on your device. We don't collect, store, or transmit any of your personal or financial information. Your data is 100% private."
         },
         {
-          q: "Why isn't Mi Varo on the Play Store?",
+          q: "Why isn't MiCash on the Play Store?",
           a: "We're currently in early development. The APK download allows us to iterate quickly and get feedback directly from users. We may release on the Play Store in the future!"
         },
         {
-          q: "Will Mi Varo work on my phone?",
-          a: "Mi Varo requires Android 7.0 (Nougat) or higher. Most Android phones from 2016 onwards are compatible. If you encounter any issues, please let us know!"
+          q: "Will MiCash work on my phone?",
+          a: "MiCash requires Android 7.0 (Nougat) or higher. Most Android phones from 2016 onwards are compatible. If you encounter any issues, please let us know!"
         }
       ]
     },
     cta: {
       title: "Ready to take control of",
       titleHighlight: "your finances?",
-      description: "Download Mi Varo now and start your journey to financial freedom.",
+      description: "Download MiCash now and start your journey to financial freedom.",
       btn: "Download for Android"
     },
     footer: {
@@ -158,7 +158,7 @@ export const translations = {
       badge: "App de Finanzas Personales",
       title: "Tu dinero,",
       titleHighlight: "bajo control",
-      description: "Controla tus gastos, establece metas y mantente al tanto de tus finanzas. Mi Varo te ayuda a entender a dónde va tu dinero y planificar el futuro.",
+      description: "Controla tus gastos, establece metas y mantente al tanto de tus finanzas. MiCash te ayuda a entender a dónde va tu dinero y planificar el futuro.",
       downloadBtn: "Descargar APK",
       learnMore: "Saber Más",
       free: "Gratis",
@@ -204,7 +204,7 @@ export const translations = {
     },
     download: {
       label: "Solo Android",
-      title: "Descarga Mi Varo",
+      title: "Descarga MiCash",
       description: "Disponible solo para Android. Descarga el APK y toma el control de tus finanzas hoy.",
       btn: "Descargar APK",
       safe: "Seguro",
@@ -214,11 +214,11 @@ export const translations = {
     install: {
       label: "Guía de Instalación",
       title: "Cómo Instalar",
-      description: "Sigue estos simples pasos para instalar Mi Varo en tu dispositivo Android",
+      description: "Sigue estos simples pasos para instalar MiCash en tu dispositivo Android",
       step1: {
         title: "Descarga el APK",
-        description: "Haz clic en el botón de descarga para obtener el archivo APK de Mi Varo en tu dispositivo.",
-        file: "Archivo: mivaro.apk",
+        description: "Haz clic en el botón de descarga para obtener el archivo APK de MiCash en tu dispositivo.",
+        file: "Archivo: MiCash.apk",
         size: "Tamaño: ~15 MB"
       },
       step2: {
@@ -237,18 +237,18 @@ export const translations = {
         description: "Ubica el archivo descargado e instala la app.",
         instructions: [
           { label: "Descargas", text: "Abre tu carpeta de" },
-          { label: "mivaro.apk", text: "Toca" },
+          { label: "MiCash.apk", text: "Toca" },
           { label: "Instalar", text: "Toca" }
         ]
       },
       step4: {
         title: "¡Abre y Disfruta!",
-        description: "Una vez instalado, toca \"Abrir\" o busca Mi Varo en tu cajón de apps para comenzar a gestionar tus finanzas.",
+        description: "Una vez instalado, toca \"Abrir\" o busca MiCash en tu cajón de apps para comenzar a gestionar tus finanzas.",
         ready: "¡Todo listo para controlar tus gastos!"
       },
       securityNote: {
         title: "Nota de Seguridad Importante",
-        description: "Mi Varo requiere el permiso de \"Fuentes desconocidas\" para instalarse. Esto es normal para apps fuera de Play Store. Tus datos se quedan en tu dispositivo - no recolectamos información personal."
+        description: "MiCash requiere el permiso de \"Fuentes desconocidas\" para instalarse. Esto es normal para apps fuera de Play Store. Tus datos se quedan en tu dispositivo - no recolectamos información personal."
       }
     },
     faq: {
@@ -256,27 +256,27 @@ export const translations = {
       title: "Preguntas Comunes",
       questions: [
         {
-          q: "¿Mi Varo es gratis?",
-          a: "¡Sí! Mi Varo es 100% gratis sin tarifas ocultas, sin versiones premium y sin anuncios. Creemos que todos deberían tener acceso a un control financiero simple."
+          q: "¿MiCash es gratis?",
+          a: "¡Sí! MiCash es 100% gratis sin tarifas ocultas, sin versiones premium y sin anuncios. Creemos que todos deberían tener acceso a un control financiero simple."
         },
         {
           q: "¿Mis datos están seguros?",
           a: "¡Absolutamente! Todos tus datos se almacenan localmente en tu dispositivo. No recolectamos, almacenamos ni transmitimos ninguna información personal o financiera. Tus datos son 100% privados."
         },
         {
-          q: "¿Por qué Mi Varo no está en Play Store?",
+          q: "¿Por qué MiCash no está en Play Store?",
           a: "Actualmente estamos en desarrollo temprano. La descarga por APK nos permite iterar rápidamente y recibir comentarios directamente de los usuarios. ¡Tal vez lancemos en Play Store en el futuro!"
         },
         {
-          q: "¿Mi Varo funcionará en mi teléfono?",
-          a: "Mi Varo requiere Android 7.0 (Nougat) o superior. La mayoría de teléfonos Android desde 2016 son compatibles. ¡Si tienes algún problema, por favor avísanos!"
+          q: "¿MiCash funcionará en mi teléfono?",
+          a: "MiCash requiere Android 7.0 (Nougat) o superior. La mayoría de teléfonos Android desde 2016 son compatibles. ¡Si tienes algún problema, por favor avísanos!"
         }
       ]
     },
     cta: {
       title: "¿Listo para tomar control de",
       titleHighlight: "tus finanzas?",
-      description: "Descarga Mi Varo ahora e inicia tu camino hacia la libertad financiera.",
+      description: "Descarga MiCash ahora e inicia tu camino hacia la libertad financiera.",
       btn: "Descargar para Android"
     },
     footer: {

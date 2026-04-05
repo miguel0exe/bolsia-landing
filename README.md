@@ -1,6 +1,6 @@
-# Mi Cash
+# MiCash
 
-Landing page for Mi Cash application.
+Landing page for MiCash application.
 
 ## Tech Stack
 
