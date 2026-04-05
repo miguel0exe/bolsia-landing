@@ -1,0 +1,62 @@
+---
+interface Props {
+  translations: any;
+}
+
+const { translations } = Astro.props;
+---
+
+<section id="download" class="py-24 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[128px]"></div>
+  
+  <div class="max-w-4xl mx-auto px-6 text-center relative scroll-animate">
+    <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6 hover:bg-primary/20 transition-colors">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.25-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.59.69.59 1.19s-.22.9-.57 1.18l-2.29 1.32-2.5-2.5 2.5-2.5 2.27 1.31M6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66"/>
+      </svg>
+      <span data-i18n="download.label">Android Only</span>
+    </span>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4" data-i18n="download.title">
+      Download Mi Varo
+    </h2>
+    <p class="text-lg text-text-muted mb-8 max-w-xl mx-auto" data-i18n="download.description">
+      Currently available for Android. Download the APK and take control of your finances today.
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <a href="https://github.com/miguel0exe/app-releases/releases/latest/download/app.apk" download class="btn-shimmer download-btn group inline-flex items-center justify-center gap-3 text-white px-8 py-4 rounded-xl font-semibold text-lg">
+        <svg class="w-6 h-6 group-hover:animate-icon-bounce" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.25-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.59.69.59 1.19s-.22.9-.57 1.18l-2.29 1.32-2.5-2.5 2.5-2.5 2.27 1.31M6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66"/>
+        </svg>
+        <span data-i18n="download.btn">Download APK</span>
+        <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m0 0l-6-6m6 6l6-6"/>
+        </svg>
+      </a>
+    </div>
+    
+    <div class="inline-flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl px-6 py-3 hover:bg-white/10 transition-colors magnetic">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        <span class="text-sm text-text-muted" data-i18n="download.safe">Safe & Secure</span>
+      </div>
+      <div class="w-px h-4 bg-white/10"></div>
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span class="text-sm text-text-muted" data-i18n="download.version">Version 1.0.0</span>
+      </div>
+      <div class="w-px h-4 bg-white/10"></div>
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        <span class="text-sm text-text-muted" data-i18n="download.size">~15 MB</span>
+      </div>
+    </div>
+  </div>
+</section>

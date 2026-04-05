@@ -1,0 +1,143 @@
+---
+interface Props {
+  translations: any;
+}
+
+const { translations } = Astro.props;
+---
+
+<section id="how-to-install" class="py-24">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16 scroll-animate">
+      <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4" data-i18n="install.label">Installation Guide</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4" data-i18n="install.title">
+        How to Install
+      </h2>
+      <p class="text-lg text-text-muted max-w-xl mx-auto" data-i18n="install.description">
+        Follow these simple steps to install Mi Varo on your Android device
+      </p>
+    </div>
+    
+    <div class="space-y-6">
+      <div class="scroll-animate">
+        <div class="install-step flex gap-6 p-6 bg-white/3 border border-white/5 rounded-2xl group">
+          <div class="flex-shrink-0">
+            <div class="step-badge w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary font-bold">
+              1
+            </div>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="install.step1.title">Download the APK</h3>
+            <p class="text-text-muted mb-3" data-i18n="install.step1.description">Click the download button above to get the Mi Varo APK file on your device.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1.5 text-xs bg-white/5 px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors">
+                <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <span data-i18n="install.step1.file">File: mivaro.apk</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 text-xs bg-white/5 px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors">
+                <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                <span data-i18n="install.step1.size">Size: ~15 MB</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-animate delay-100">
+        <div class="install-step flex gap-6 p-6 bg-white/3 border border-white/5 rounded-2xl group">
+          <div class="flex-shrink-0">
+            <div class="step-badge w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary font-bold">
+              2
+            </div>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="install.step2.title">Enable Installation from Unknown Sources</h3>
+            <p class="text-text-muted mb-3" data-i18n="install.step2.description">Since this app is not on the Play Store, you need to allow installations from unknown sources.</p>
+            <div class="space-y-2 text-sm text-text-muted">
+              <p class="flex items-start gap-2">
+                <span class="text-primary mt-1">1.</span>
+                <span data-i18n="install.step2.instructions.0.text">Go to</span> <span class="bg-white/10 px-2 py-0.5 rounded text-white font-mono text-xs" data-i18n="install.step2.instructions.0.label">Settings</span>
+              </p>
+              <p class="flex items-start gap-2">
+                <span class="text-primary mt-1">2.</span>
+                <span data-i18n="install.step2.instructions.1.text">Tap</span> <span class="bg-white/10 px-2 py-0.5 rounded text-white font-mono text-xs" data-i18n="install.step2.instructions.1.label">Security</span> <span data-i18n="install.step2.instructions.2.text">or</span> <span class="bg-white/10 px-2 py-0.5 rounded text-white font-mono text-xs" data-i18n="install.step2.instructions.2.label">Privacy</span>
+              </p>
+              <p class="flex items-start gap-2">
+                <span class="text-primary mt-1">3.</span>
+                <span data-i18n="install.step2.instructions.3.text">Find and enable</span> <span class="bg-white/10 px-2 py-0.5 rounded text-white font-mono text-xs" data-i18n="install.step2.instructions.3.label">Unknown sources</span> <span data-i18n="install.step2.instructions.4.text">or</span> <span class="bg-white/10 px-2 py-0.5 rounded text-white font-mono text-xs" data-i18n="install.step2.instructions.4.label">Install unknown apps</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-animate delay-200">
+        <div class="install-step flex gap-6 p-6 bg-white/3 border border-white/5 rounded-2xl group">
+          <div class="flex-shrink-0">
+            <div class="step-badge w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary font-bold">
+              3
+            </div>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="install.step3.title">Install the APK</h3>
+            <p class="text-text-muted mb-3" data-i18n="install.step3.description">Locate the downloaded file and install the app.</p>
+            <div class="space-y-2 text-sm text-text-muted">
+              <p class="flex items-start gap-2">
+                <span class="text-primary mt-1">1.</span>
+                <span data-i18n="install.step3.instructions.0.text">Open your</span> <span class="bg-white/10 px-2 py-0.5 rounded text-white font-mono text-xs" data-i18n="install.step3.instructions.0.label">Downloads</span> <span data-i18n="install.step3.instructions.0.suffix">folder (or where you saved the file)</span>
+              </p>
+              <p class="flex items-start gap-2">
+                <span class="text-primary mt-1">2.</span>
+                <span data-i18n="install.step3.instructions.1.text">Tap on</span> <span class="bg-white/10 px-2 py-0.5 rounded text-white font-mono text-xs" data-i18n="install.step3.instructions.1.label">mivaro.apk</span>
+              </p>
+              <p class="flex items-start gap-2">
+                <span class="text-primary mt-1">3.</span>
+                <span data-i18n="install.step3.instructions.2.text">Tap</span> <span class="bg-white/10 px-2 py-0.5 rounded text-white font-mono text-xs" data-i18n="install.step3.instructions.2.label">Install</span> <span data-i18n="install.step3.instructions.2.suffix">when prompted</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-animate delay-300">
+        <div class="install-step flex gap-6 p-6 bg-white/3 border border-white/5 rounded-2xl group">
+          <div class="flex-shrink-0">
+            <div class="step-badge w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary font-bold">
+              4
+            </div>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="install.step4.title">Open and Enjoy!</h3>
+            <p class="text-text-muted mb-3" data-i18n="install.step4.description">Once installed, tap "Open" or find Mi Varo in your app drawer to start managing your finances.</p>
+            <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-lg text-sm font-medium">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span data-i18n="install.step4.ready">You're all set to track your expenses!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-10 security-note p-5 bg-amber-500/10 border border-amber-500/20 rounded-xl scroll-animate delay-400">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0">
+          <div class="w-10 h-10 bg-amber-500/20 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold text-amber-400 mb-1" data-i18n="install.securityNote.title">Important Security Note</h4>
+          <p class="text-sm text-text-muted" data-i18n="install.securityNote.description">Mi Varo requires "Unknown sources" permission to install. This is normal for apps outside the Play Store. Your data stays on your device - we don't collect any personal information.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

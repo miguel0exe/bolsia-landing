@@ -1,0 +1,28 @@
+---
+interface Props {
+  translations: any;
+}
+
+const { translations } = Astro.props;
+---
+
+<section class="py-24 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[128px]"></div>
+  
+  <div class="max-w-3xl mx-auto px-6 text-center relative scroll-animate">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">
+      <span data-i18n="cta.title">Ready to take control of</span><br/>
+      <span class="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent" data-i18n="cta.titleHighlight">your finances?</span>
+    </h2>
+    <p class="text-lg text-text-muted mb-8" data-i18n="cta.description">
+      Download Mi Varo now and start your journey to financial freedom.
+    </p>
+    <a href="#download" class="btn-shimmer download-btn cta-glow inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl font-semibold text-lg animate-bounce-subtle">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.25-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.59.69.59 1.19s-.22.9-.57 1.18l-2.29 1.32-2.5-2.5 2.5-2.5 2.27 1.31M6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66"/>
+      </svg>
+      <span data-i18n="cta.btn">Download for Android</span>
+    </a>
+  </div>
+</section>
