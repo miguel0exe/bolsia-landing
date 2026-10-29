@@ -9,7 +9,8 @@ const { translations, initialLang } = Astro.props;
 
 <script define:vars={{ translations: JSON.stringify(translations), initialLang: initialLang }}>
   const t = JSON.parse(translations);
-  let currentLang = localStorage.getItem('lang') || initialLang || 'en';
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let currentLang = urlLang || initialLang || localStorage.getItem('lang') || 'en';
 
   function updateLanguage(lang) {
     currentLang = lang;

@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 # vscode setting folder
 .vscode/
+test-results/
+playwright-report/
+design.md

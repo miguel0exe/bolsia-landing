@@ -12,16 +12,22 @@ import Footer from '../components/Footer.astro';
 import LanguageToggle from '../components/LanguageToggle.astro';
 import ScrollAnimation from '../components/ScrollAnimation.astro';
 import { translations } from '../components/translations';
+import { siteConfig, type HeroVariant, type Locale } from '../config/site';
 
-const lang = Astro.url.searchParams.get('lang') || 'en';
+const requestedLang = Astro.url.searchParams.get('lang');
+const lang: Locale = siteConfig.locales.includes(requestedLang as Locale)
+  ? (requestedLang as Locale)
+  : siteConfig.defaultLocale;
+const requestedVariant = Astro.url.searchParams.get('variant');
+const variant: HeroVariant = requestedVariant === 'lavender' ? 'lavender' : 'mint';
 const t = translations[lang];
 ---
 
-<Layout>
+<Layout lang={lang}>
   <Navbar translations={t} />
   
-  <main class="pt-20">
-    <Hero translations={t} />
+  <main>
+    <Hero translations={t} variant={variant} />
     <Features translations={t} />
     <HowItWorks translations={t} />
     <Download translations={t} />

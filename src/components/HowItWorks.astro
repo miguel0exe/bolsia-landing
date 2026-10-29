@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from '../config/site';
+
 interface Props {
   translations: any;
 }
@@ -6,39 +8,183 @@ interface Props {
 const { translations } = Astro.props;
 ---
 
-<section class="py-24">
-  <div class="max-w-5xl mx-auto px-6">
-    <div class="text-center mb-16 scroll-animate">
-      <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4" data-i18n="howItWorks.label">How It Works</span>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold" data-i18n="howItWorks.title">Simple, intuitive, effective</h2>
+<section class="how-section py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="how-heading scroll-animate">
+      <div>
+        <span class="how-kicker" data-i18n="howItWorks.label">Cómo funciona</span>
+        <h2 data-i18n="howItWorks.title">Una rutina simple para entender tu dinero</h2>
+      </div>
+      <p data-i18n="howItWorks.description">
+        Bolsía convierte el seguimiento financiero en tres acciones claras.
+      </p>
     </div>
-    
-    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-      <div class="flex-1 text-center scroll-animate group">
-        <div class="step-number-animate w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-shadow cursor-pointer">1</div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="howItWorks.step1.title">Add Your Expense</h3>
-        <p class="text-text-muted group-hover:text-text-muted/80 transition-colors" data-i18n="howItWorks.step1.description">Open the app and quickly log what you spent</p>
-      </div>
-      
-      <div class="hidden md:block w-24 h-0.5 bg-gradient-to-r from-primary/50 to-primary/50 relative">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full animate-icon-bounce"></div>
-      </div>
-      
-      <div class="flex-1 text-center scroll-animate delay-100 group">
-        <div class="step-number-animate w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-shadow cursor-pointer">2</div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="howItWorks.step2.title">Set Your Goals</h3>
-        <p class="text-text-muted group-hover:text-text-muted/80 transition-colors" data-i18n="howItWorks.step2.description">Create savings targets for what matters to you</p>
-      </div>
-      
-      <div class="hidden md:block w-24 h-0.5 bg-gradient-to-r from-primary/50 to-primary/50 relative">
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full animate-icon-bounce"></div>
-      </div>
-      
-      <div class="flex-1 text-center scroll-animate delay-200 group">
-        <div class="step-number-animate w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-shadow cursor-pointer">3</div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="howItWorks.step3.title">Track Progress</h3>
-        <p class="text-text-muted group-hover:text-text-muted/80 transition-colors" data-i18n="howItWorks.step3.description">Watch your spending and savings grow</p>
-      </div>
+
+    <div class="how-steps">
+      <article class="how-step how-step--primary scroll-animate">
+        <div class="how-step-number">01</div>
+        <div>
+          <h3 data-i18n="howItWorks.step1.title">Agrega tu gasto</h3>
+          <p data-i18n="howItWorks.step1.description">Abre la app y registra rápidamente lo que gastaste.</p>
+        </div>
+        <img src={siteConfig.assets.expenseScreenshot} alt="Registro de un gasto en Bolsía" loading="lazy" />
+      </article>
+
+      <article class="how-step how-step--light scroll-animate delay-100">
+        <div class="how-step-number">02</div>
+        <div>
+          <h3 data-i18n="howItWorks.step2.title">Fija tus metas</h3>
+          <p data-i18n="howItWorks.step2.description">Crea objetivos de ahorro para lo que te importa.</p>
+        </div>
+        <img src={siteConfig.assets.goalsScreenshot} alt="Meta de ahorro en Bolsía" loading="lazy" />
+      </article>
+
+      <article class="how-step how-step--mint scroll-animate delay-200">
+        <div class="how-step-number">03</div>
+        <div>
+          <h3 data-i18n="howItWorks.step3.title">Sigue tu progreso</h3>
+          <p data-i18n="howItWorks.step3.description">Mira cómo cambian tus gastos y tus ahorros con el tiempo.</p>
+        </div>
+        <img src={siteConfig.assets.analysisScreenshot} alt="Análisis de gastos de Bolsía" loading="lazy" />
+      </article>
     </div>
   </div>
 </section>
+
+<style>
+  .how-section {
+    background: #f3faef;
+    color: #17231d;
+  }
+
+  .how-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.45fr);
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  .how-kicker {
+    color: #1d7a4c;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .how-heading h2 {
+    max-width: 47rem;
+    margin-top: 1rem;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 0.94;
+  }
+
+  .how-heading p {
+    max-width: 20rem;
+    color: #52635a;
+    line-height: 1.65;
+  }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .how-step {
+    display: flex;
+    flex-direction: column;
+    min-height: 32rem;
+    padding: 2rem;
+    border-radius: 1.4rem;
+    overflow: hidden;
+  }
+
+  .how-step-number {
+    margin-bottom: 4rem;
+    color: #1d7a4c;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+  }
+
+  .how-step h3 {
+    max-width: 15rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.7rem, 3vw, 2.7rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  .how-step p {
+    max-width: 16rem;
+    color: #52635a;
+    line-height: 1.6;
+  }
+
+  .how-step img {
+    width: 9.5rem;
+    height: 15rem;
+    margin: auto auto -4rem;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 1.2rem 1.2rem 0 0;
+    box-shadow: 0 16px 30px rgba(23, 35, 29, 0.15);
+  }
+
+  .how-step--primary {
+    background: #12211b;
+    color: #f3faef;
+  }
+
+  .how-step--primary p {
+    color: #b7c8bd;
+  }
+
+  .how-step--primary .how-step-number {
+    color: #d7f56a;
+  }
+
+  .how-step--light {
+    background: #dff0d9;
+  }
+
+  .how-step--mint {
+    background: #d7f56a;
+  }
+
+  @media (max-width: 900px) {
+    .how-heading {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .how-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .how-step {
+      min-height: 25rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .how-section {
+      padding: 5rem 0;
+    }
+
+    .how-heading {
+      margin-bottom: 3rem;
+    }
+
+    .how-step {
+      min-height: 27rem;
+      padding: 1.5rem;
+    }
+  }
+</style>

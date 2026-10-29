@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from '../config/site';
+
 interface Props {
   translations: any;
 }
@@ -6,25 +8,132 @@ interface Props {
 const { translations } = Astro.props;
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-bg-dark/80 border-b border-white/5">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-3 text-xl font-bold logo-hover">
-      <img src="/logo.svg" alt="MiCash" class="w-10 h-10 animate-bounce-subtle" />
-      <span class="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">MiCash</span>
+<nav class="site-nav sticky top-0 z-50 border-b">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 text-xl font-bold logo-hover" aria-label={siteConfig.brand.name}>
+      <img src={siteConfig.assets.logo} alt="" class="w-10 h-10 object-contain" />
+      <span>{siteConfig.brand.name}</span>
     </a>
-    <div class="flex items-center gap-6">
-      <a href="#features" class="text-text-muted hover:text-primary transition-colors font-medium hidden sm:block nav-link-animate" data-i18n="nav.features">Features</a>
-      <a href="#download" class="text-text-muted hover:text-primary transition-colors font-medium hidden sm:block nav-link-animate" data-i18n="nav.download">Download</a>
-      <a href="#how-to-install" class="text-text-muted hover:text-primary transition-colors font-medium hidden sm:block nav-link-animate" data-i18n="nav.installGuide">Install Guide</a>
-      
-      <div class="flex items-center gap-1 bg-white/5 rounded-lg p-1">
+    <button class="nav-menu-toggle sm:hidden" type="button" aria-controls="site-nav-menu" aria-expanded="false">
+      <span class="sr-only">Abrir menú</span>
+      <span></span><span></span><span></span>
+    </button>
+    <div id="site-nav-menu" class="site-nav-menu items-center gap-6">
+      <a href="#features" class="site-nav-link nav-link-animate" data-i18n="nav.features">Features</a>
+      <a href="#download" class="site-nav-link nav-link-animate" data-i18n="nav.download">Download</a>
+      <a href="#how-to-install" class="site-nav-link nav-link-animate" data-i18n="nav.installGuide">Install Guide</a>
+
+      <div class="site-lang-switch flex items-center gap-1 rounded-lg p-1">
         <button id="lang-en" class="lang-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all" data-lang="en">EN</button>
         <button id="lang-es" class="lang-btn px-3 py-1.5 rounded-md text-sm font-medium transition-all" data-lang="es">ES</button>
       </div>
-      
-      <a href="#download" class="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-1 download-btn" data-i18n="nav.getStarted">
-        Get Started
-      </a>
+
+      <a href="#download" class="site-nav-action px-5 py-2.5 rounded-lg font-semibold text-sm transition-all hover:-translate-y-0.5" data-i18n="nav.getStarted">Get Started</a>
     </div>
   </div>
 </nav>
+
+<style>
+  .site-nav {
+    background: #12211b;
+    color: #f3faef;
+    border-color: rgba(215, 245, 106, 0.18);
+  }
+
+  .site-nav-menu {
+    display: flex;
+  }
+
+  .site-nav-link {
+    color: #b7c8bd;
+    transition: color 180ms ease;
+  }
+
+  .site-nav-link:hover {
+    color: #d7f56a;
+  }
+
+  .site-lang-switch {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .site-nav-action {
+    color: #12211b;
+    background: #d7f56a;
+  }
+
+  .site-nav-action:hover {
+    box-shadow: 0 8px 18px rgba(215, 245, 106, 0.2);
+  }
+
+  .nav-menu-toggle {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(215, 245, 106, 0.35);
+    border-radius: 0.6rem;
+  }
+
+  .nav-menu-toggle span:not(.sr-only) {
+    display: block;
+    width: 1rem;
+    height: 2px;
+    margin: 3px auto;
+    background: #d7f56a;
+  }
+
+  @media (max-width: 639px) {
+    .site-nav {
+      position: relative;
+    }
+
+    .site-nav-menu {
+      position: absolute;
+      top: calc(100% + 1px);
+      right: 1rem;
+      left: 1rem;
+      display: none !important;
+      padding: 1rem;
+      border: 1px solid rgba(215, 245, 106, 0.2);
+      border-radius: 0.9rem;
+      background: #12211b;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    }
+
+    .site-nav-menu.is-open {
+      display: flex !important;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+    }
+
+    .site-nav-menu .site-nav-link {
+      padding: 0.5rem;
+    }
+
+    .site-nav-menu .site-lang-switch {
+      align-self: flex-start;
+    }
+
+    .site-nav-menu .site-nav-action {
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  const menuToggle = document.querySelector<HTMLButtonElement>('.nav-menu-toggle');
+  const navMenu = document.querySelector<HTMLElement>('#site-nav-menu');
+
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = navMenu?.classList.toggle('is-open') ?? false;
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('is-open');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from '../config/site';
+
 interface Props {
   translations: any;
 }
@@ -6,15 +8,73 @@ interface Props {
 const { translations } = Astro.props;
 ---
 
-<footer class="py-12 border-t border-white/5">
+<footer class="site-footer">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3 logo-hover cursor-pointer">
-        <img src="/logo.svg" alt="MiCash" class="w-8 h-8" />
-        <span class="font-bold text-lg">MiCash</span>
-      </div>
-      <p class="text-text-subtle text-sm" data-i18n="footer.tagline">Simple personal finance, always free.</p>
-      <p class="text-text-subtle text-sm">&copy; 2026 MiCash. <span class="footer-link" data-i18n="footer.copyright">All rights reserved.</span></p>
+    <div class="site-footer-main">
+      <a href="#" class="footer-brand" aria-label={siteConfig.brand.name}>
+        <img src={siteConfig.assets.logo} alt="" />
+        <span>{siteConfig.brand.name}</span>
+      </a>
+      <p data-i18n="footer.tagline">Finanzas personales simples, siempre gratis.</p>
+      <span class="footer-year">&copy; 2026 {siteConfig.brand.name}</span>
+    </div>
+    <div class="site-footer-bottom">
+      <span data-i18n="footer.copyright">Todos los derechos reservados.</span>
+      <span>Android · APK</span>
     </div>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    padding: 3rem 0 2rem;
+    background: #12211b;
+    color: #f3faef;
+  }
+
+  .site-footer-main,
+  .site-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .site-footer-main {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(215, 245, 106, 0.2);
+  }
+
+  .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+
+  .footer-brand img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+  }
+
+  .site-footer-main p,
+  .site-footer-bottom {
+    color: #b7c8bd;
+    font-size: 0.85rem;
+  }
+
+  .site-footer-bottom {
+    padding-top: 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 640px) {
+    .site-footer-main,
+    .site-footer-bottom {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

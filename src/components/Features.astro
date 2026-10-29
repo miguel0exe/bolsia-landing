@@ -1,62 +1,518 @@
 ---
+import { siteConfig } from "../config/site";
+
 interface Props {
   translations: any;
 }
 
 const { translations } = Astro.props;
+
+const features = [
+  {
+    key: "balance",
+    index: "01",
+    image: siteConfig.assets.heroScreenshot,
+    alt: "Balance principal de Bolsía",
+  },
+  {
+    key: "quickExpense",
+    index: "02",
+    image: siteConfig.assets.expenseScreenshot,
+    alt: "Registro de gasto en Bolsía",
+  },
+  {
+    key: "history",
+    index: "03",
+    image: siteConfig.assets.historyScreenshot,
+    alt: "Historial de movimientos de Bolsía",
+  },
+  {
+    key: "goals",
+    index: "04",
+    image: siteConfig.assets.goalsScreenshot,
+    alt: "Metas de ahorro en Bolsía",
+  },
+  {
+    key: "analysis",
+    index: "05",
+    image: siteConfig.assets.analysisScreenshot,
+    alt: "Análisis de gastos de Bolsía",
+  },
+];
 ---
 
-<section id="features" class="py-24 relative">
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
-  <div class="max-w-7xl mx-auto px-6 relative">
-    <div class="text-center mb-16 scroll-animate">
-      <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4" data-i18n="features.label">Features</span>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">
-        <span data-i18n="features.title">Everything you need to</span><br/>
-        <span class="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent" data-i18n="features.titleHighlight">manage your money</span>
-      </h2>
+<section id="features" class="features-section">
+  <div class="features-shell">
+    <div class="features-intro">
+      <div>
+        <p class="features-kicker" data-i18n="features.label">
+          Características
+        </p>
+        <h2 class="features-title">
+          <span data-i18n="features.title">Todo lo que necesitas para</span>
+          <em data-i18n="features.titleHighlight">gestionar tu dinero</em>
+        </h2>
+      </div>
+      <p class="features-lead" data-i18n="features.description">
+        Una vista clara para decidir mejor: desde el balance del día hasta el
+        progreso de tus metas.
+      </p>
     </div>
-    
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="feature-card-animate group bg-white/3 border border-white/5 rounded-2xl p-6 hover:bg-white/6 hover:border-primary/30 transition-all duration-500 hover:-translate-y-3 scroll-animate magnetic">
-        <div class="feature-icon-animate w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
+
+    <div class="features-story" data-feature-story>
+      <div class="features-sticky">
+        <div class="features-stage">
+          {
+            features.map((feature, index) => (
+              <article
+                class:list={["feature-panel", index === 0 && "is-active"]}
+                data-feature-panel={index}
+                aria-label={`${feature.index} ${translations.features[feature.key].title}`}
+              >
+                <div class="feature-copy">
+                  <span class="feature-index">{feature.index}</span>
+                  <h3 data-i18n={`features.${feature.key}.title`}>
+                    {translations.features[feature.key].title}
+                  </h3>
+                  <p data-i18n={`features.${feature.key}.description`}>
+                    {translations.features[feature.key].description}
+                  </p>
+                </div>
+                <div class="feature-image-frame">
+                  <img
+                    src={feature.image}
+                    alt={feature.alt}
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                </div>
+              </article>
+            ))
+          }
         </div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="features.quickExpense.title">Quick Expense Tracking</h3>
-        <p class="text-text-muted leading-relaxed group-hover:text-text-muted/80 transition-colors" data-i18n="features.quickExpense.description">Add new expenses in seconds from the main screen. No spreadsheets - just tap and go.</p>
-      </div>
-      
-      <div class="feature-card-animate group bg-white/3 border border-white/5 rounded-2xl p-6 hover:bg-white/6 hover:border-primary/30 transition-all duration-500 hover:-translate-y-3 scroll-animate delay-100 magnetic">
-        <div class="feature-icon-animate w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-          </svg>
+
+        <div class="features-progress" aria-hidden="true">
+          <span class="features-progress-line"
+            ><span data-feature-progress-line></span></span
+          >
+          <ol>
+            {
+              features.map((feature, index) => (
+                <li
+                  class:list={[index === 0 && "is-active"]}
+                  data-feature-dot={index}
+                >
+                  <span>{feature.index}</span>
+                </li>
+              ))
+            }
+          </ol>
         </div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="features.history.title">Expense History</h3>
-        <p class="text-text-muted leading-relaxed group-hover:text-text-muted/80 transition-colors" data-i18n="features.history.description">View all your transactions in one place. See patterns and understand your spending habits.</p>
-      </div>
-      
-      <div class="feature-card-animate group bg-white/3 border border-white/5 rounded-2xl p-6 hover:bg-white/6 hover:border-primary/30 transition-all duration-500 hover:-translate-y-3 scroll-animate delay-200 magnetic">
-        <div class="feature-icon-animate w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="features.goals.title">Goal Setting</h3>
-        <p class="text-text-muted leading-relaxed group-hover:text-text-muted/80 transition-colors" data-i18n="features.goals.description">Set savings goals and track your progress. Vacations, phones, emergency funds - we've got you.</p>
-      </div>
-      
-      <div class="feature-card-animate group bg-white/3 border border-white/5 rounded-2xl p-6 hover:bg-white/6 hover:border-primary/30 transition-all duration-500 hover:-translate-y-3 scroll-animate delay-300 magnetic">
-        <div class="feature-icon-animate w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
-          </svg>
-        </div>
-        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors" data-i18n="features.settings.title">Personalized Settings</h3>
-        <p class="text-text-muted leading-relaxed group-hover:text-text-muted/80 transition-colors" data-i18n="features.settings.description">Update your username, set your monthly budget, and tailor the app to your needs.</p>
+
+        <p class="sr-only" aria-live="polite" data-feature-status>
+          Característica 01
+        </p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const story = document.querySelector<HTMLElement>("[data-feature-story]");
+
+  if (story) {
+    const panels = Array.from(
+      story.querySelectorAll<HTMLElement>("[data-feature-panel]"),
+    );
+    const dots = Array.from(
+      story.querySelectorAll<HTMLElement>("[data-feature-dot]"),
+    );
+    const progressLine = story.querySelector<HTMLElement>(
+      "[data-feature-progress-line]",
+    );
+    const status = story.querySelector<HTMLElement>("[data-feature-status]");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mobileQuery = window.matchMedia("(max-width: 760px)");
+    let ticking = false;
+    let lastAnnounced = -1;
+
+    // El scroll sigue siendo el del documento: sticky mantiene el contenido a la vista.
+    // 0.55 viewport por transición evita los huecos excesivos de la versión anterior.
+    const syncStoryHeight = () => {
+      if (mobileQuery.matches || reduceMotion.matches) {
+        story.style.removeProperty("height");
+        return;
+      }
+
+      const viewport = window.innerHeight;
+      const scrollPerStep = Math.max(240, viewport * 0.55);
+
+      story.style.height = `${viewport + scrollPerStep * (panels.length - 1)}px`;
+    };
+
+    const setActiveStep = (step: number, fraction: number) => {
+      const shown = Math.min(
+        step + (fraction >= 0.5 ? 1 : 0),
+        panels.length - 1,
+      );
+      panels.forEach((panel, index) => {
+        const visible =
+          index === step ? 1 - fraction : index === step + 1 ? fraction : 0;
+        panel.style.setProperty("--feature-opacity", String(visible));
+        panel.style.setProperty(
+          "--feature-shift",
+          `${(index - step - fraction) * 1.25}rem`,
+        );
+        panel.classList.toggle("is-active", index === shown);
+        // Los paneles no visibles no reciben foco ni aparecen duplicados al lector de pantalla.
+        panel.inert = index !== shown;
+        panel.setAttribute("aria-hidden", String(index !== shown));
+      });
+      dots.forEach((dot, index) =>
+        dot.classList.toggle("is-active", index === shown),
+      );
+      if (progressLine) {
+        progressLine.style.transform = `scaleY(${Math.min((step + fraction) / (panels.length - 1), 1)})`;
+      }
+      if (status && shown !== lastAnnounced) {
+        status.textContent = `Característica ${String(shown + 1).padStart(2, "0")}`;
+        lastAnnounced = shown;
+      }
+    };
+
+    const updateStory = () => {
+      ticking = false;
+      if (mobileQuery.matches || reduceMotion.matches) return;
+      const rect = story.getBoundingClientRect();
+      const distance = Math.max(story.offsetHeight - window.innerHeight, 1);
+      const progress = Math.max(0, Math.min(1, -rect.top / distance));
+      const scaled = progress * (panels.length - 1);
+      const step = Math.min(Math.floor(scaled), panels.length - 1);
+      // Pequeña pausa de lectura seguida de transición: nunca hay un frame totalmente vacío.
+      const fractional = step === panels.length - 1 ? 0 : scaled - step;
+      const fade = Math.max(0, Math.min(1, (fractional - 0.22) / 0.56));
+      const easedFade = fade * fade * (3 - 2 * fade);
+      setActiveStep(step, easedFade);
+    };
+
+    const requestUpdate = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateStory);
+      }
+    };
+
+    const applyResponsiveMode = () => {
+      syncStoryHeight();
+      if (mobileQuery.matches || reduceMotion.matches) {
+        panels.forEach((panel) => {
+          panel.style.removeProperty("--feature-opacity");
+          panel.style.removeProperty("--feature-shift");
+          panel.classList.add("is-active");
+          panel.inert = false;
+          panel.removeAttribute("aria-hidden");
+        });
+        dots.forEach((dot) => dot.classList.remove("is-active"));
+      } else {
+        updateStory();
+      }
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", applyResponsiveMode);
+    reduceMotion.addEventListener("change", applyResponsiveMode);
+    applyResponsiveMode();
+  }
+</script>
+
+<style>
+  .features-section {
+    padding: 8rem 0 0;
+    background: #12211b;
+    color: #f3faef;
+  }
+
+  .features-shell {
+    width: min(100% - 3rem, 80rem);
+    margin: 0 auto;
+  }
+
+  .features-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.55fr);
+    gap: 4rem;
+    align-items: end;
+    min-height: 20rem;
+    padding-bottom: 5rem;
+  }
+
+  .features-kicker,
+  .feature-index {
+    color: #d7f56a;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .features-title {
+    max-width: 46rem;
+    margin-top: 1rem;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 0.94;
+  }
+
+  .features-title em {
+    display: block;
+    color: #a7dca8;
+    font-style: normal;
+  }
+
+  .features-lead {
+    max-width: 22rem;
+    color: #b7c8bd;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  .features-story {
+    position: relative;
+    height: auto;
+  }
+
+  .features-sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100svh;
+    min-height: 0;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .features-stage {
+    position: relative;
+    min-height: min(42rem, calc(100svh - 8rem));
+    overflow: hidden;
+    border-top: 1px solid rgba(215, 245, 106, 0.28);
+    background: #1b3028;
+  }
+
+  .feature-panel {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1.15fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+    padding: clamp(2rem, 5vw, 5rem);
+    opacity: var(--feature-opacity, 0);
+    transform: translateY(var(--feature-shift, 2rem));
+    transition: none;
+    pointer-events: none;
+  }
+
+  .feature-panel.is-active {
+    pointer-events: auto;
+  }
+
+  .feature-copy h3 {
+    max-width: 25rem;
+    margin: 0.9rem 0 0.75rem;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 0.96;
+  }
+
+  .feature-copy p {
+    max-width: 25rem;
+    color: #b7c8bd;
+    line-height: 1.65;
+  }
+
+  .feature-image-frame {
+    display: grid;
+    min-height: 0;
+    height: min(65svh, 36rem);
+    place-items: center;
+    padding: 1rem;
+    border-radius: 1.25rem;
+    background: #0e1713;
+  }
+
+  .feature-image-frame img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: min(61svh, 34rem);
+    object-fit: contain;
+    object-position: center;
+    border-radius: 0.75rem;
+  }
+
+  .features-progress {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    z-index: 2;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    transform: translateY(-50%);
+  }
+
+  .features-progress-line {
+    display: block;
+    width: 2px;
+    height: 7rem;
+    overflow: hidden;
+    background: rgba(215, 245, 106, 0.2);
+  }
+
+  .features-progress-line span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #d7f56a;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 450ms ease;
+  }
+
+  .features-progress ol {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .features-progress li {
+    color: #6d8b7c;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    transition: color 250ms ease;
+  }
+
+  .features-progress li.is-active {
+    color: #d7f56a;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .features-sticky {
+      position: relative;
+      min-height: 0;
+      display: block;
+    }
+    .features-stage {
+      display: grid;
+      gap: 1rem;
+      min-height: 0;
+      overflow: visible;
+      background: transparent;
+    }
+    .feature-panel {
+      position: relative;
+      inset: auto;
+      opacity: 1;
+      transform: none;
+      background: #1b3028;
+      padding: 2rem;
+    }
+    .features-progress {
+      display: none;
+    }
+    .feature-panel,
+    .features-progress-line span,
+    .features-progress li {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .features-intro {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .feature-panel {
+      gap: 2rem;
+      padding: 2.5rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .features-section {
+      padding: 5rem 0 4rem;
+    }
+
+    .features-shell {
+      width: min(100% - 2rem, 40rem);
+    }
+
+    .features-intro {
+      min-height: auto;
+      padding-bottom: 3rem;
+    }
+
+    .features-story {
+      height: auto;
+    }
+
+    .features-sticky {
+      position: relative;
+      top: auto;
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      overflow: visible;
+    }
+
+    .features-stage {
+      display: grid;
+      gap: 1px;
+      min-height: 0;
+      overflow: visible;
+      background: transparent;
+      border-top: 0;
+    }
+
+    .feature-panel {
+      position: relative;
+      inset: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      min-height: 35rem;
+      padding: 1.5rem;
+      opacity: 1;
+      transform: none;
+      background: #1b3028;
+      transition: none;
+    }
+
+    .feature-copy h3 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .feature-image-frame {
+      min-height: 18rem;
+      max-height: 25rem;
+      padding: 0.75rem;
+    }
+
+    .feature-image-frame img {
+      max-height: 23rem;
+    }
+
+    .features-progress {
+      display: none;
+    }
+  }
+</style>

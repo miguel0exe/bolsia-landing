@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from '../config/site';
+
 interface Props {
   translations: any;
 }
@@ -6,23 +8,106 @@ interface Props {
 const { translations } = Astro.props;
 ---
 
-<section class="py-24 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent"></div>
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[128px]"></div>
-  
-  <div class="max-w-3xl mx-auto px-6 text-center relative scroll-animate">
-    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">
-      <span data-i18n="cta.title">Ready to take control of</span><br/>
-      <span class="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent" data-i18n="cta.titleHighlight">your finances?</span>
-    </h2>
-    <p class="text-lg text-text-muted mb-8" data-i18n="cta.description">
-      Download MiCash now and start your journey to financial freedom.
-    </p>
-    <a href="#download" class="btn-shimmer download-btn cta-glow inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl font-semibold text-lg animate-bounce-subtle">
-      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.25-.84-.76-.84-1.35m13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27m3.35-4.31c.34.27.59.69.59 1.19s-.22.9-.57 1.18l-2.29 1.32-2.5-2.5 2.5-2.5 2.27 1.31M6.05 2.66l10.76 6.22-2.27 2.27L6.05 2.66"/>
-      </svg>
-      <span data-i18n="cta.btn">Download for Android</span>
-    </a>
+<section class="cta-section">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="cta-panel scroll-animate">
+      <span class="cta-mark">B/</span>
+      <div>
+        <h2><span data-i18n="cta.title">¿Listo para tomar el control de</span> <em data-i18n="cta.titleHighlight">tus finanzas?</em></h2>
+        <p data-i18n="cta.description">Descarga Bolsía ahora e inicia tu camino hacia la libertad financiera.</p>
+      </div>
+      <a href={siteConfig.download.apkUrl} download class="cta-action">
+        <span data-i18n="cta.btn">Descargar para Android</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
   </div>
 </section>
+
+<style>
+  .cta-section {
+    padding: 7rem 0;
+    background: #dff0d9;
+    color: #17231d;
+  }
+
+  .cta-panel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .cta-mark {
+    display: grid;
+    width: 5rem;
+    height: 5rem;
+    place-items: center;
+    border-radius: 50%;
+    background: #12211b;
+    color: #d7f56a;
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .cta-panel h2 {
+    max-width: 48rem;
+    font-size: clamp(2.4rem, 5vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.07em;
+    line-height: 0.94;
+  }
+
+  .cta-panel h2 em {
+    color: #1d7a4c;
+    font-style: normal;
+  }
+
+  .cta-panel p {
+    margin-top: 1rem;
+    color: #52635a;
+  }
+
+  .cta-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.8rem;
+    background: #12211b;
+    color: #f3faef;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .cta-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.75rem 1.5rem rgba(18, 33, 27, 0.18);
+  }
+
+  @media (max-width: 800px) {
+    .cta-section {
+      padding: 5rem 0;
+    }
+
+    .cta-panel {
+      grid-template-columns: auto 1fr;
+    }
+
+    .cta-action {
+      grid-column: 2;
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-panel {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-action {
+      grid-column: auto;
+    }
+  }
+</style>

@@ -1,30 +1,43 @@
 ---
-import '../styles/global.css';
+import { siteConfig, type Locale } from "../config/site";
+import "../styles/global.css";
+
+interface Props {
+	lang?: Locale;
+}
+
+const { lang = siteConfig.defaultLocale } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="description" content="Track your expenses, set financial goals, and take control of your money with MiCash - your personal finance companion." />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-		<title>MiCash - Personal Finance Made Simple</title>
+		<link rel="icon" type="image/x-icon" href={siteConfig.assets.favicon} />
+		<meta name="description" content={siteConfig.seo.description} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<title>{siteConfig.seo.title}</title>
 	</head>
-	<body class="bg-bg-dark text-text font-sans antialiased">
+	<body
+		class="bg-[#f3faef] text-text font-sans antialiased relative min-h-screen"
+	>
 		<slot />
 	</body>
 </html>
 
 <style>
-	html, body {
+	html,
+	body {
 		margin: 0;
 		width: 100%;
 		min-height: 100%;
-		font-family: 'Inter', sans-serif;
-		overflow-x: hidden;
+		font-family: "Inter", sans-serif;
+		overflow-x: clip;
 	}
 </style>
